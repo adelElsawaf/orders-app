@@ -26,6 +26,5 @@ export class UpdateProductRequestDto{
     @IsBoolean()
     @IsNotEmpty()
     @IsOptional()
-
     isFeatured: boolean;
 }
