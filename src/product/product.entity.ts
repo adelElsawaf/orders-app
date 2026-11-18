@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn , OneToMany} from "typeorm";
 import { PublishingStatus } from "./enums/publishing-status-enum";
+import { OrderItem } from '../order-item/order-item.entity';
 
 @Entity('products')
 export class Product {
@@ -31,6 +32,9 @@ export class Product {
     
     @Column({ type: 'boolean', default: false })
     isFeatured: boolean;
+
+    @OneToMany(() => OrderItem, (orderItem) => orderItem.product)
+    orderItems: OrderItem[];
 
     @CreateDateColumn({ type: 'timestamp with time zone' })
     createdAt: Date;
