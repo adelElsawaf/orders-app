@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RedisModule } from './common/redis/redis.module';
 import { ProductModule } from './product/product.module';
+import { RateLimiterModule } from './common/rate-limiter/rate-limiter.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { ProductModule } from './product/product.module';
     }),
     RedisModule,
     ProductModule,
+    RateLimiterModule
   ],
   controllers: [AppController],
   providers: [AppService],
